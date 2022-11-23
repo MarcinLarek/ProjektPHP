@@ -21,19 +21,25 @@ $db = new mysqli("localhost","root","","project");
       <?php
       if (isset($_SESSION["username"])) {
        ?>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex w-100 justify-content-end">
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Wyloguj</a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link"><?php echo $_SESSION["username"] ?></a>
+            <span href="" class="nav-link"><?php echo $_SESSION["username"] ?></span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="useredit.php">Edytuj dane</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cart.php">Koszyk</a>
         </li>
       </ul>
       <?php
     }
     else {
        ?>
-       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex w-100 justify-content-end">
          <li class="nav-item">
            <a class="nav-link" href="register.php">Rejestracja</a>
          </li>
@@ -59,7 +65,7 @@ if (isset($_SESSION["admin"])) {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex w-100 justify-content-end">
           <li class="nav-item">
             <a class="nav-link" href="addproduct.php">Dodaj produkt</a>
           </li>
