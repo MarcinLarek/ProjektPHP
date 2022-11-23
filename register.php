@@ -31,7 +31,6 @@ if (isset($_POST['send'])) {
     else {
       echo "<div class='alert alert-danger' role='alert'>Błąd podczas zakładania konta</div>";
     }
-
   }
 }
  ?>
@@ -50,7 +49,7 @@ if (isset($_POST['send'])) {
          <input class="form-control" type="password" name="pass2">
 
          <div class="d-flex align-items-center justify-content-center pt-3">
-           <input type="submit" class="btn btn-primary" name="send" value="Zaloguj się">
+           <input type="submit" class="btn btn-primary" name="send" value="Zarejestruj się">
          </div>
        </div>
      </div>

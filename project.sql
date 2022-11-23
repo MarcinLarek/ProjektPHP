@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2022 at 06:29 PM
+-- Generation Time: Nov 23, 2022 at 07:12 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -29,9 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users` (
   `ID` int(11) NOT NULL,
-  `login` varchar(30) COLLATE utf8mb4_polish_ci NOT NULL,
+  `username` varchar(30) COLLATE utf8mb4_polish_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`ID`, `username`, `password`) VALUES
+(1, 'TestUser', '$2y$10$zVrtNbStBN9G7huJuxwMlOS7iOZm9AzeWnvruak6tKzFgd8S7Zmkq');
 
 --
 -- Indexes for dumped tables
@@ -51,7 +58,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
