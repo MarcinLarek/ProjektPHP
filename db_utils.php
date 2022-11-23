@@ -24,7 +24,9 @@ $db = new mysqli("localhost","root","","project");
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Wyloguj</a>
-          <p><?php echo $_SESSION["username"] ?></p>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link"><?php echo $_SESSION["username"] ?></a>
         </li>
       </ul>
       <?php
