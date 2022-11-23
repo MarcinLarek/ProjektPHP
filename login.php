@@ -11,6 +11,8 @@ if (isset($_POST['send'])) {
       $_SESSION["username"] = $data['username'];
       $_SESSION["password"] = $data['password'];
       $_SESSION["admin"] = $data['admin'];
+      $_SESSION["ID"] = $data['ID'];
+      $_SESSION["admin"] = $data['admin'];
       header("Refresh:0");
       break;
     }

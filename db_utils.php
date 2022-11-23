@@ -26,14 +26,23 @@ $db = new mysqli("localhost","root","","project");
           <a class="nav-link" href="logout.php">Wyloguj</a>
         </li>
         <li class="nav-item">
-            <span href="" class="nav-link"><?php echo $_SESSION["username"] ?></span>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="useredit.php">Edytuj dane</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="cart.php">Koszyk</a>
         </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <?php echo $_SESSION["username"] ?>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">wyloguj</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+          </ul>
+        </li>
+
       </ul>
       <?php
     }
@@ -57,7 +66,7 @@ $db = new mysqli("localhost","root","","project");
 
 
 <?php
-if (isset($_SESSION["admin"])) {
+if (isset($_SESSION["admin"]) && $_SESSION["admin"] == true) {
  ?>
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
    <div class="container-fluid">

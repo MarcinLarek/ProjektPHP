@@ -2,7 +2,7 @@
 require_once 'db_utils.php';
 
 if (isset($_SESSION['username'])) {
-  unset($_SESSION['username'], $_SESSION['password']);
+  unset($_SESSION['username'], $_SESSION['password'],$_SESSION['admin'],$_SESSION['ID']);
   header("Refresh:0");
 }
 else {
