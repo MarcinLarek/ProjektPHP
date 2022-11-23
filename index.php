@@ -15,7 +15,7 @@ require_once 'db_utils.php';
       <h2>Zapraszamy!</h2>
     </div>
     <div class="col-3">
-
+      Test
     </div>
   </div>
 </div>
