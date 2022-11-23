@@ -20,7 +20,7 @@ if (isset($_POST['send'])) {
     $validated = false;
   }
   if ($validated ) {
-    $stmt = $db->prepare("INSERT INTO uzytkownicy (username, password) VALUES (?, ?)");
+    $stmt = $db->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
     $usr = $_POST['username'];
     $pass = password_hash($_POST['pass1'], PASSWORD_DEFAULT);
     $stmt->bind_param('ss', $usr, $pass );
@@ -36,15 +36,23 @@ if (isset($_POST['send'])) {
 }
  ?>
 
- <form action="register.php" method="post" style="display: flex; margin: 0 auto; flex-direction: column;">
-   <label for="username">Login</label>
-   <input type="text" name="username">
+ <div class="container pt-5">
+   <form action="register.php" method="post">
+     <div class="row align-items-center justify-content-center">
+       <div class="form-group col-md-6">
+         <label class="control-label" for="username">Login</label>
+         <input class="form-control" type="text" name="username">
 
-   <label for="pass1">Hasło</label>
-   <input type="password" name="pass1" >
+         <label class="control-label pt-3" for="pass1">Hasło</label>
+         <input class="form-control" type="password" name="pass1" >
 
-   <label for="pass2">Powtórz hasło</label>
-   <input type="password" name="pass2">
+         <label class="control-label pt-3" for="pass2">Powtórz hasło</label>
+         <input class="form-control" type="password" name="pass2">
 
-   <input type="submit" name="send" value="Zarejestruj się">
- </form>
+         <div class="d-flex align-items-center justify-content-center pt-3">
+           <input type="submit" class="btn btn-primary" name="send" value="Zaloguj się">
+         </div>
+       </div>
+     </div>
+   </form>
+ </div>
