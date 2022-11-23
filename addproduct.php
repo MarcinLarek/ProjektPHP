@@ -3,27 +3,45 @@ require_once 'db_utils.php';
 
 if (isset($_POST['send'])) {
   $validated = true;
-  if (strlen($_POST['username']) > 30) {
-    echo "<div style='color: red'> Za długa nazwa użytkownika</div>";
+  if (is_numeric($_POST['price'])) {
+
+  }
+  else {
+    echo "<div class='alert alert-danger' role='alert'> Cena musi być liczbą</div>";
     $validated = false;
   }
-  if (strlen($_POST['username']) < 1) {
-    echo "<div style='color: red'> Za krótka nazwa użytkownika</div>";
+  if (strlen($_POST['name']) < 1) {
+    echo "<div class='alert alert-danger' role='alert'> Nazwa towaru nie może być pusta</div>";
     $validated = false;
   }
-  if ($_POST['pass1'] != $_POST['pass2']) {
-    echo "<div style='color: red'> Hasła nie są identyczne</div>";
+  if (strlen($_POST['name']) > 255) {
+    echo "<div class='alert alert-danger' role='alert'> Za długa nazwa towaru</div>";
     $validated = false;
   }
-  if (strlen($_POST['pass1']) < 1) {
-    echo "<div style='color: red'> Hasło nie może być puste</div>";
+  if (strlen($_POST['category']) < 1) {
+    echo "<div class='alert alert-danger' role='alert'> Nazwa kategorii nie może być pusta</div>";
+    $validated = false;
+  }
+  if (strlen($_POST['category']) > 255) {
+    echo "<div class='alert alert-danger' role='alert'> Za długa nazwa kategorii</div>";
+    $validated = false;
+  }
+  if (strlen($_POST['photo']) < 1) {
+    echo "<div class='alert alert-danger' role='alert'> Zdjęcie nie może być puste</div>";
+    $validated = false;
+  }
+  if (strlen($_POST['description']) < 1) {
+    echo "<div class='alert alert-danger' role='alert'> Opis nie może być pusty</div>";
     $validated = false;
   }
   if ($validated ) {
-    $stmt = $db->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-    $usr = $_POST['username'];
-    $pass = password_hash($_POST['pass1'], PASSWORD_DEFAULT);
-    $stmt->bind_param('ss', $usr, $pass );
+    $stmt = $db->prepare("INSERT INTO products (name, category, price, photo, description) VALUES (?, ?, ?, ?, ?)");
+    $name = $_POST['name'];
+    $category = $_POST['category'];
+    $price = $_POST['price'];
+    $photo = $_POST['photo'];
+    $description = $_POST['description'];
+    $stmt->bind_param('ssiss', $name, $category, $price, $photo, $description );
     $result = $stmt->execute();
     if($result) {
       echo "<div class='alert alert-success' role='alert'>Pomyślnie założono konto</div>";
@@ -32,21 +50,32 @@ if (isset($_POST['send'])) {
       echo "<div class='alert alert-danger' role='alert'>Błąd podczas zakładania konta</div>";
     }
   }
+
 }
 ?>
 
 <div class="container pt-5">
-  <form action="register.php" method="post">
+  <form action="addproduct.php" method="post">
     <div class="row align-items-center justify-content-center">
       <div class="form-group col-md-6">
-        <label class="control-label" for="username">Login</label>
-        <input class="form-control" type="text" name="username">
+        <label class="control-label" for="name">Nazwa</label>
+        <input class="form-control" type="text" name="name">
 
-        <label class="control-label pt-3" for="pass1">Hasło</label>
-        <input class="form-control" type="password" name="pass1" >
+        <label class="control-label pt-3" for="category">Kategoria</label>
+        <select class="form-control" name="category">
+          <option value="myszka">Myszka</option>
+          <option value="słuchawki">Słuchawki</option>
+          <option value="myszka">Klawiatura</option>
+        </select>
 
-        <label class="control-label pt-3" for="pass2">Powtórz hasło</label>
-        <input class="form-control" type="password" name="pass2">
+        <label class="control-label pt-3" for="price">Cena</label>
+        <input class="form-control" type="number" name="price">
+
+        <label class="control-label pt-3" for="photo">Link Do Zdjęcia</label>
+        <input class="form-control" type="text" name="photo" >
+
+        <label class="control-label pt-3" for="description">Opis</label>
+        <input class="form-control" type="text" name="description" >
 
         <div class="d-flex align-items-center justify-content-center pt-3">
           <input type="submit" class="btn btn-primary" name="send" value="Zarejestruj się">
