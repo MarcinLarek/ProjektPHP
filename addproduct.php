@@ -44,10 +44,10 @@ if (isset($_POST['send'])) {
     $stmt->bind_param('ssiss', $name, $category, $price, $photo, $description );
     $result = $stmt->execute();
     if($result) {
-      echo "<div class='alert alert-success' role='alert'>Pomyślnie założono konto</div>";
+      echo "<div class='alert alert-success' role='alert'>Pomyślnie dodano produkt</div>";
     }
     else {
-      echo "<div class='alert alert-danger' role='alert'>Błąd podczas zakładania konta</div>";
+      echo "<div class='alert alert-danger' role='alert'>Błąd podczas dodawania produktu</div>";
     }
   }
 
@@ -78,7 +78,7 @@ if (isset($_POST['send'])) {
         <input class="form-control" type="text" name="description" >
 
         <div class="d-flex align-items-center justify-content-center pt-3">
-          <input type="submit" class="btn btn-primary" name="send" value="Zarejestruj się">
+          <input type="submit" class="btn btn-primary" name="send" value="Stwórz nowy produkt">
         </div>
       </div>
     </div>
