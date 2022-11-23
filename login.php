@@ -10,6 +10,7 @@ if (isset($_POST['send'])) {
     if (password_verify($_POST['pass'], $data['password'])) {
       $_SESSION["username"] = $data['username'];
       $_SESSION["password"] = $data['password'];
+      $_SESSION["admin"] = $data['admin'];
       header("Refresh:0");
       break;
     }
