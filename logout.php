@@ -1,5 +1,11 @@
 <?php
 require_once 'db_utils.php';
 
-unset($_SESSION['username'], $_SESSION['password']);
+if (isset($_SESSION['username'])) {
+  unset($_SESSION['username'], $_SESSION['password']);
+  header("Refresh:0");
+}
+else {
+  echo "<div class='alert alert-success' role='alert'>Pomyślnie wylogowano się z konta</div>";
+}
  ?>

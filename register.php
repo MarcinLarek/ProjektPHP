@@ -26,10 +26,10 @@ if (isset($_POST['send'])) {
     $stmt->bind_param('ss', $usr, $pass );
     $result = $stmt->execute();
     if($result) {
-      echo "<div style='color: green'> Sukces</div>";
+      echo "<div class='alert alert-success' role='alert'>Pomyślnie założono konto</div>";
     }
     else {
-      echo "<div style='color: green'> nie sukces</div>";
+      echo "<div class='alert alert-danger' role='alert'>Błąd podczas zakładania konta</div>";
     }
 
   }

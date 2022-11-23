@@ -1,7 +1,8 @@
 <?php
 session_start();
-$db = new mysqli("localhost","root","","test");
+$db = new mysqli("localhost","root","","project");
  ?>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -17,14 +18,29 @@ $db = new mysqli("localhost","root","","test");
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <?php
+      if (isset($_SESSION["username"])) {
+       ?>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="register.php">Rejestracja</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="login.php">Login</a>
+          <a class="nav-link" href="logout.php">Wyloguj</a>
         </li>
       </ul>
+      <?php
+    }
+    else {
+       ?>
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <li class="nav-item">
+           <a class="nav-link" href="register.php">Rejestracja</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="login.php">Login</a>
+         </li>
+       </ul>
+       <?php
+     }
+        ?>
     </div>
   </div>
 </nav>

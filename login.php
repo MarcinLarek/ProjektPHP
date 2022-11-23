@@ -8,12 +8,15 @@ if (isset($_POST['send'])) {
   $result = $stmt->get_result();
   while ($data = $result->fetch_array()) {
     if (password_verify($_POST['pass'], $data['password'])) {
-      echo "<div style='color: green'> Sukces</div>";
       $_SESSION["username"] = $data['username'];
       $_SESSION["password"] = $data['password'];
+      header("Refresh:0");
       break;
     }
   }
+}
+if(isset($_SESSION["username"])){
+echo "<div class='alert alert-success' role='alert'>Pomyślnie zalogowano użytkownika</div>";
 }
  ?>
 
