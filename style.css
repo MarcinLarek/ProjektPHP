@@ -1,0 +1,24 @@
+.cart-img {
+    width:300px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.cart-div img {
+    transition: .3s;
+}
+
+.cart-div:hover img {
+    transform: scale(1.1) rotate(15deg);
+}
+
+.shop-title {
+    font-size: 80px;
+    font-weight: bolder;
+    font-style: italic;
+    margin-bottom: 60px;
+}
+
+.shop-title p {
+    text-align: center;
+}

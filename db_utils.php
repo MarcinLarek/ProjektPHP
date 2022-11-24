@@ -9,6 +9,7 @@ $db = new mysqli("localhost","root","","project");
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
@@ -23,21 +24,22 @@ $db = new mysqli("localhost","root","","project");
       if (isset($_SESSION["username"])) {
        ?>
      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex w-100 justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link" href="cart.php">Koszyk</a>
-        </li>
-
-
+         <li class="nav-item">
+           <a class="nav-link" href="shop.php">Sklep</a>
+         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <?php echo $_SESSION["username"] ?>
           </a>
           <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+             <li class="nav-item">
+               <a class="nav-link" href="cart.php">Koszyk</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="useredit.php">Edytuj dane</a>
+             </li>
             <li class="nav-item">
               <a class="nav-link" href="logout.php">Wyloguj</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="useredit.php">Edytuj dane</a>
             </li>
           </ul>
         </li>
@@ -47,6 +49,9 @@ $db = new mysqli("localhost","root","","project");
     else {
        ?>
        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex w-100 justify-content-end">
+         <li class="nav-item">
+           <a class="nav-link" href="cart.php">Sklep</a>
+         </li>
          <li class="nav-item">
            <a class="nav-link" href="register.php">Rejestracja</a>
          </li>
