@@ -32,7 +32,7 @@ $db = new mysqli("localhost","root","","project");
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <?php echo $_SESSION["username"] ?>
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
             <li class="nav-item">
               <a class="nav-link" href="logout.php">Wyloguj</a>
             </li>
@@ -41,7 +41,6 @@ $db = new mysqli("localhost","root","","project");
             </li>
           </ul>
         </li>
-
       </ul>
       <?php
     }
@@ -59,6 +58,7 @@ $db = new mysqli("localhost","root","","project");
      }
         ?>
     </div>
+
   </div>
   </nav>
 
