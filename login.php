@@ -20,7 +20,9 @@ if (isset($_POST['send'])) {
 }
 if(isset($_SESSION["username"])){
 echo "<div class='alert alert-success' role='alert'>Pomyślnie zalogowano użytkownika</div>";
-}
+
+require_once 'index.php';
+} else {
  ?>
 
  <div class="container pt-5">
@@ -40,3 +42,4 @@ echo "<div class='alert alert-success' role='alert'>Pomyślnie zalogowano użytk
      </div>
    </form>
  </div>
+<?php } ?>
