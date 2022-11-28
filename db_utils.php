@@ -50,7 +50,7 @@ $db = new mysqli("localhost","root","","project");
        ?>
        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex w-100 justify-content-end">
          <li class="nav-item">
-           <a class="nav-link" href="cart.php">Sklep</a>
+           <a class="nav-link" href="shop.php">Sklep</a>
          </li>
          <li class="nav-item">
            <a class="nav-link" href="register.php">Rejestracja</a>

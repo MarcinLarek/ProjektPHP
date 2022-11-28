@@ -19,7 +19,7 @@ if (isset($_POST['send'])) {
   }
 }
 if(isset($_SESSION["username"])){
-echo "<div class='alert alert-success' role='alert'>Pomyślnie zalogowano użytkownika</div>";
+echo "<div style='margin-bottom:0px !important;' class='alert alert-success' role='alert'>Pomyślnie zalogowano użytkownika</div>";
 
 require_once 'index.php';
 } else {

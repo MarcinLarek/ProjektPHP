@@ -7,7 +7,7 @@ if (isset($_SESSION['username'])) {
 
 }
 else {
-  echo "<div class='alert alert-success' role='alert'>Pomyślnie wylogowano się z konta</div>";
+  echo "<div style='margin-bottom:0px !important;' class='alert alert-success' role='alert'>Pomyślnie wylogowano się z konta</div>";
   require_once 'index.php';
 }
  ?>
