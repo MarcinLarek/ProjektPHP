@@ -13,7 +13,7 @@ $db = new mysqli("localhost","root","","project");
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="staticNav navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php"> <b>Just IT Stuff</b> </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,14 +29,20 @@ $db = new mysqli("localhost","root","","project");
          </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <?php echo $_SESSION["username"] ?>
+            <?php
+                if (isset($_SESSION["admin"])) {
+                    echo "<span style='color:#f0c33c;'>".$_SESSION["username"]."</span>";
+                } else {
+                    echo $_SESSION["username"];
+                }
+            ?>
           </a>
           <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
              <li class="nav-item">
                <a class="nav-link" href="cart.php">Koszyk</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="useredit.php">Edytuj dane</a>
+               <a class="nav-link" href="useredit.php">Edytuj swoje dane</a>
              </li>
             <li class="nav-item">
               <a class="nav-link" href="logout.php">Wyloguj</a>

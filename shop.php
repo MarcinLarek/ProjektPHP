@@ -17,7 +17,7 @@ $query = mysqli_query($db, "SELECT * FROM products"); ?>
                     <div class="cart-img" style="display:flex;justify-content:center;margin-bottom:10px;">
                         <a href="single-product.php?id=<?php echo $id; ?>"><img class="img-fluid" src="<?php echo $rekord[4] ?>"/>
                     </div>
-                    <div style="display:flex;justify-content:center;margin-bottom:20px;"><a style="text-decoration:none;color:black;" href="single-product.php"><?php echo $rekord[2] ?></a></div>
+                    <div style="display:flex;justify-content:center;margin-bottom:20px;"><a style="text-decoration:none;color:black;" href="single-product.php"><?php echo $rekord[1] ?></a></div>
                     <div style="display:flex;justify-content:center;font-size: 25px;"><?php echo $rekord[3] ?>
                         <span style="font-size:16px;">&nbsp;zł</span>
                     </div>
