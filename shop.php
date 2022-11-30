@@ -59,7 +59,7 @@
                                  <?php
                                }else {
                                  ?>
-                                 <button type="button" class="btn btn-danger" name="button">Produkt Niedostępny</button>
+                                 <button type="button" class="btn btn-danger" disabled name="button">Produkt Niedostępny</button>
                                  <?php
                                }
                                   ?>
