@@ -52,8 +52,9 @@ if (isset($_POST['send'])) {
   }
 
 }
-?>
 
+if (isset($_SESSION['username'])) {
+?>
 <div class="container pt-5">
   <form action="addproduct.php" method="post">
     <div class="row align-items-center justify-content-center">
@@ -84,3 +85,12 @@ if (isset($_POST['send'])) {
     </div>
   </form>
 </div>
+
+<?php
+}
+else {
+?>
+<div style='margin-bottom:0px !important;' class='alert alert-danger' role='alert'>Brak uprawnień do przeglądania strony</div>
+<?php
+}
+ ?>

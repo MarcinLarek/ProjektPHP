@@ -4,6 +4,7 @@ require_once 'db_utils.php';
 $sql = "SELECT * FROM orders";
 $results = $db->query($sql);
 
+if (isset($_SESSION['username'])) {
 ?>
 <div class="container pt-5">
   <table class="table">
@@ -42,7 +43,7 @@ $results = $db->query($sql);
         echo "<td>".$product['name']."</td>";
         echo "<td>".$user['username']."</td>";
         echo "<td>".$result['status']."</td>";
-        echo "<td>".$result['date']."</td>";
+        echo "<td>".$result['order_date']."</td>";
         $id = $result['Id'];
         echo "<td>
         <a href='editorder.php?id=$id'>
@@ -54,3 +55,12 @@ $results = $db->query($sql);
     </tbody>
   </table>
 </div>
+
+<?php
+}
+else {
+?>
+<div style='margin-bottom:0px !important;' class='alert alert-danger' role='alert'>Brak uprawnień do przeglądania strony</div>
+<?php
+}
+ ?>
