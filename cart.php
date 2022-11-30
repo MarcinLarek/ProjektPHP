@@ -13,4 +13,15 @@ if (isset($_GET['id'])) {
 if (isset($_GET['success'])) {
   echo "<div style='margin-bottom:0px !important;' class='alert alert-success' role='alert'>Dodano produkt do koszyka</div>";
 }
+
+$userid = $_SESSION['ID'];
+$result = mysqli_query($db,"SELECT * FROM orders WHERE user_id = $userid");
+foreach ($result as $order) {
+  echo "W Tej pętli masz zamówienia <br>";
+  ?>
+
+<!--Tutaj Pisz Htmelke-->
+
+  <?php
+}
 ?>
