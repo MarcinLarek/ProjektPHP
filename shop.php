@@ -4,6 +4,8 @@
 
     $query = mysqli_query($db, "SELECT * FROM products");
 
+
+
     if (isset($_POST['add'])) {
         if (isset($_SESSION["cart"])) {
             $item_array_id = array_column($_SESSION["cart"], "id");
@@ -24,6 +26,8 @@
     }
 
 ?>
+
+
 
 
 <div class="container" style="padding-top: 100px;">
@@ -59,15 +63,9 @@
     </form>
 
 
-    <?php if (empty($_SESSION["name"])) {
-        // $total = 0;
-        foreach ($_SESSION["name"] as $key => $value) { ?>
-            <tr>
-                <th><?php echo $value[1] ?></th>
-                <th><?php echo $value[1] ?></th>
-                <th><?php echo $value[1] ?></th>
-            </tr>
-        <?php }
+    <?php if (isset($_SESSION["username"])) {
+
+
     } ?>
 
 
