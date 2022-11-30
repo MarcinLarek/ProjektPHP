@@ -4,8 +4,6 @@
 
     $query = mysqli_query($db, "SELECT * FROM products");
 
-
-
     if (isset($_POST['add'])) {
         if (isset($_SESSION["cart"])) {
             $item_array_id = array_column($_SESSION["cart"], "id");
@@ -26,8 +24,6 @@
     }
 
 ?>
-
-
 
 
 <div class="container" style="padding-top: 100px;">
@@ -52,7 +48,9 @@
                             <input type="hidden" name="hidden_name" value='<?php echo $rekord[1] ?>' value="">
                             <?php if (isset($_SESSION["username"])) { ?>
                                 <div style="display:flex;justify-content:flex-end";>
-                                    <input type="submit" name="add" value="Dodaj do koszyka">
+                                    <a href="cart.php?id=<?php echo $id; ?>">
+                                      <button type="button" class="btn btn-dark" name="button">Dodaj do koszyka</button>
+                                    </a>
                                 </div>
                             <?php } ?>
                         </div>
@@ -61,12 +59,6 @@
             } ?>
         </div>
     </form>
-
-
-    <?php if (isset($_SESSION["username"])) {
-
-
-    } ?>
 
 
 </div>
