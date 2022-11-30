@@ -47,11 +47,22 @@
                             </div>
                             <input type="hidden" name="hidden_name" value='<?php echo $rekord[1] ?>' value="">
                             <?php if (isset($_SESSION["username"])) { ?>
-                                <div style="display:flex;justify-content:flex-end";>
-                                    <a href="cart.php?id=<?php echo $id; ?>">
-                                      <button type="button" class="btn btn-dark" name="button">Dodaj do koszyka</button>
-                                    </a>
-                                </div>
+                                <?php
+                                if ($rekord[6] == 1) {
+
+                                 ?>
+                                 <div style="display:flex;justify-content:flex-end";>
+                                     <a href="cart.php?id=<?php echo $id; ?>">
+                                       <button type="button" class="btn btn-dark" name="button">Dodaj do koszyka</button>
+                                     </a>
+                                 </div>
+                                 <?php
+                               }else {
+                                 ?>
+                                 <button type="button" class="btn btn-danger" name="button">Produkt Niedostępny</button>
+                                 <?php
+                               }
+                                  ?>
                             <?php } ?>
                         </div>
                     </div>
