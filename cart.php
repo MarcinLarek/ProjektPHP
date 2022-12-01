@@ -44,16 +44,11 @@ $result = mysqli_query($db,"SELECT * FROM orders WHERE user_id = $userid"); ?>
     $singleproduct = $product->fetch_row(); ?>
 
     <div class="row">
-<<<<<<< HEAD
 <div class="col text-center testus">
+  <?php
+      // Wyświetlanie produktów w koszyku
+   ?>
 <img style="height:100px" src="<?php echo $singleproduct[4] ?>" alt="">
-=======
-<div class="col testus">
-    <?php
-        // Wyświetlanie produktów w koszyku
-     ?>
-<img src="<?php echo $singleproduct[4] ?>" alt="">
->>>>>>> b4788e153410eab34def29ffeb10516302d5f349
 </div>
 <div class="col testus">
 <?php echo $singleproduct[1] ?>
