@@ -17,6 +17,13 @@ if (isset($_GET['success'])) {
 $userid = $_SESSION['ID'];
 $result = mysqli_query($db,"SELECT * FROM orders WHERE user_id = $userid"); ?>
         <div class="cart-wrapper">
+            <ul>
+                <li>Fotka</li>
+                <li>Nazwa</li>
+                <li>Cena</li>
+                <li>Data zakupu</li>
+                <li>Status zamówienia</li>
+            </ul>
 <?php foreach ($result as $order) {
     $prodid = $order['product_id'];
     $product = mysqli_query($db,"SELECT * FROM products WHERE id = $prodid");
