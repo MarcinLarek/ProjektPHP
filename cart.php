@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 if (isset($_GET['success'])) {
   echo "<div style='margin-bottom:0px !important;' class='alert alert-success' role='alert'>Dodano produkt do koszyka</div>";
 }
-
+//Pobranie do zmiennej rekordów z bazy danych i przypisanie do zmiennej
 $userid = $_SESSION['ID'];
 $result = mysqli_query($db,"SELECT * FROM orders WHERE user_id = $userid"); ?>
         <div class="cart-wrapper">
@@ -38,13 +38,22 @@ $result = mysqli_query($db,"SELECT * FROM orders WHERE user_id = $userid"); ?>
             <hr>
 
 <?php foreach ($result as $order) {
+    //Przypisanie rekordów tabeli z produktami porównujac id z zamówienia
     $prodid = $order['product_id'];
     $product = mysqli_query($db,"SELECT * FROM products WHERE id = $prodid");
     $singleproduct = $product->fetch_row(); ?>
 
     <div class="row">
+<<<<<<< HEAD
 <div class="col text-center testus">
 <img style="height:100px" src="<?php echo $singleproduct[4] ?>" alt="">
+=======
+<div class="col testus">
+    <?php
+        // Wyświetlanie produktów w koszyku
+     ?>
+<img src="<?php echo $singleproduct[4] ?>" alt="">
+>>>>>>> b4788e153410eab34def29ffeb10516302d5f349
 </div>
 <div class="col testus">
 <?php echo $singleproduct[1] ?>
