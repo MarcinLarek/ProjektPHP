@@ -15,7 +15,7 @@
         </div>
         <div class="product">
             <figure>
-                <img src="<?php echo $rekord[4] ?>" alt="">
+                <img class="img-fluid" src="<?php echo $rekord[4] ?>" alt="">
             </figure>
             <div class="product-wrapper">
                 <div class="product-name">

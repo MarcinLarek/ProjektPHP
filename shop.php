@@ -2,7 +2,7 @@
     require_once 'db_utils.php';
     $naz = '';
 
-    $query = mysqli_query($db, "SELECT * FROM products");
+    $query = mysqli_query($db, "SELECT * FROM products ORDER BY Id DESC");
 
     if (isset($_POST['add'])) {
         if (isset($_SESSION["cart"])) {
@@ -39,7 +39,7 @@
                     <div class="col-4 pb-4 cart-div">
                         <div class="shadow p-4 bg-body rounded">
                             <div class="cart-img" style="display:flex;justify-content:center;margin-bottom:10px;">
-                                <a href="single-product.php?id=<?php echo $id; ?>"><img class="img-fluid" src="<?php echo $rekord[4] ?>"/>
+                                <a href="single-product.php?id=<?php echo $id; ?>"><img style="height:220px;" src="<?php echo $rekord[4] ?>"/>
                             </div>
                             <div style="display:flex;justify-content:center;margin-bottom:20px;"><a style="text-decoration:none;color:black;" href="single-product.php"><?php echo $rekord[1] ?></a></div>
                             <div style="display:flex;justify-content:center;font-size: 25px;"><?php echo $rekord[3] ?>
@@ -51,7 +51,7 @@
                                 if ($rekord[6] == 1) {
 
                                  ?>
-                                 <div style="display:flex;justify-content:flex-end";>
+                                 <div class="" style="display:flex;justify-content:flex-end;";>
                                      <a href="cart.php?id=<?php echo $id; ?>">
                                        <button type="button" class="btn btn-dark" name="button">Dodaj do koszyka</button>
                                      </a>

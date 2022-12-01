@@ -43,8 +43,8 @@ $result = mysqli_query($db,"SELECT * FROM orders WHERE user_id = $userid"); ?>
     $singleproduct = $product->fetch_row(); ?>
 
     <div class="row">
-<div class="col testus">
-<img src="<?php echo $singleproduct[4] ?>" alt="">
+<div class="col text-center testus">
+<img style="height:100px" src="<?php echo $singleproduct[4] ?>" alt="">
 </div>
 <div class="col testus">
 <?php echo $singleproduct[1] ?>
