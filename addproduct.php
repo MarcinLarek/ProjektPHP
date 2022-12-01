@@ -66,13 +66,13 @@ if (isset($_SESSION['username'])) {
         <select class="form-control" name="category">
           <option value="Myszka">Myszka</option>
           <option value="Słuchawki">Słuchawki</option>
-          <option value="Myszka">Klawiatura</option>
+          <option value="Klawiatura">Klawiatura</option>
           <option value="Monitor">Monitor</option>
           <option value="Poradnik">Poradnik</option>
         </select>
 
         <label class="control-label pt-3" for="price">Cena</label>
-        <input class="form-control" type="number" name="price">
+        <input class="form-control" type="number" step="0.01" name="price">
 
         <label class="control-label pt-3" for="photo">Link Do Zdjęcia</label>
         <input class="form-control" type="text" name="photo" >
