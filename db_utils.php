@@ -9,7 +9,7 @@ $db = new mysqli("localhost","root","","project");
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
@@ -30,7 +30,7 @@ $db = new mysqli("localhost","root","","project");
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <?php
-                if (isset($_SESSION["admin"])) {
+                if (isset($_SESSION["admin"]) && $_SESSION["admin"] == 1) {
                     echo "<span style='color:#f0c33c;'>".$_SESSION["username"]."</span>";
                 } else {
                     echo $_SESSION["username"];

@@ -64,9 +64,11 @@ if (isset($_SESSION['username'])) {
 
         <label class="control-label pt-3" for="category">Kategoria</label>
         <select class="form-control" name="category">
-          <option value="myszka">Myszka</option>
-          <option value="słuchawki">Słuchawki</option>
-          <option value="myszka">Klawiatura</option>
+          <option value="Myszka">Myszka</option>
+          <option value="Słuchawki">Słuchawki</option>
+          <option value="Myszka">Klawiatura</option>
+          <option value="Monitor">Monitor</option>
+          <option value="Poradnik">Poradnik</option>
         </select>
 
         <label class="control-label pt-3" for="price">Cena</label>
