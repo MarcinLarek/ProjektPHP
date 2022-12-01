@@ -55,7 +55,7 @@
     display: flex;
     align-items: center;
     max-width: 220px;
-    justify-content: center; 
+    justify-content: center;
     border-radius: 10px;
     text-decoration: none;
     color: black;
@@ -85,4 +85,25 @@
 
 .product-cart svg {
     width: 40px;
+}
+.cart-wrapper {
+    margin-top: 50px;
+    padding: 0 400px;
+}
+.cart-wrapper ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid black;
+    margin-bottom: 0 !important;
+    padding: 20px 30px;
+    justify-content: space-between;
+}
+
+.cart-wrapper ul li {
+    /* margin-right: 30px; */
+}
+
+.cart-wrapper ul li img {
+    width: 100px;
 }
