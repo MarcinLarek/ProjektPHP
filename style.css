@@ -78,7 +78,6 @@
 .available {
     color: green;
 }
-
 .unavailable {
     color: red;
 }
@@ -87,7 +86,7 @@
     width: 40px;
 }
 .cart-wrapper {
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 0 400px;
 }
 .cart-wrapper ul {
@@ -98,10 +97,6 @@
     margin-bottom: 0 !important;
     padding: 20px 30px;
     justify-content: space-between;
-}
-
-.cart-wrapper ul li {
-    /* margin-right: 30px; */
 }
 
 .cart-wrapper ul li img {
