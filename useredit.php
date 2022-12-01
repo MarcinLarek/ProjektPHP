@@ -1,6 +1,6 @@
 <?php
 require_once 'db_utils.php';
-
+//Validacja nazwy użytkownika i hasła. Dłuość i potwierdzenie.
 if (isset($_POST['send'])) {
   $validated = true;
   if (strlen($_POST['username']) > 30) {
@@ -19,24 +19,29 @@ if (isset($_POST['send'])) {
     echo "<div style='color: red'> Hasło nie może być puste</div>";
     $validated = false;
   }
+
   if ($validated ) {
+    //Jeśli validacja została potwierdzona, szukamy użytkownika po naszym ID i przypisujemy mu nowe wartości
     $stmt = $db->prepare("UPDATE users SET username=?, password=? WHERE id=?");
     $usr = $_POST['username'];
     $pass = password_hash($_POST['pass1'], PASSWORD_DEFAULT);
     $stmt->bind_param('ssi', $usr, $pass, $_SESSION['ID'] );
     $result = $stmt->execute();
+    //Odpowiedni komunikat w zależności czy nam się udało czy nie
     if($result) {
-      echo "<div class='alert alert-success' role='alert'>Pomyślnie założono konto</div>";
+      echo "<div class='alert alert-success' role='alert'>Pomyślnie zmodyfikowano konto</div>";
     }
     else {
-      echo "<div class='alert alert-danger' role='alert'>Błąd podczas zakładania konta</div>";
+      echo "<div class='alert alert-danger' role='alert'>Błąd podczas modyfikacji konta</div>";
     }
   }
+  //Pobieramy dane o obecnie zalogowanymm użytkownika.
   $stmt = $db->prepare("SELECT * FROM users WHERE username = ?");
   $stmt->bind_param('s',$_POST['username']);
   $stmt->execute();
   $result = $stmt->get_result();
   while ($data = $result->fetch_array()) {
+    //Aktualizowanie Danych użytkownika w zmiennej SESSION
     if (password_verify($_POST['pass1'], $data['password'])) {
       $_SESSION["username"] = $data['username'];
       $_SESSION["password"] = $data['password'];

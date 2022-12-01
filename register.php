@@ -1,6 +1,6 @@
 <?php
 require_once 'db_utils.php';
-
+//Walidacja wprowadzonych danych. Długość nazwy użytkownika, hasła i sprawdzenie potwierdzenia.
 if (isset($_POST['send'])) {
   $validated = true;
   if (strlen($_POST['username']) > 30) {
@@ -20,11 +20,13 @@ if (isset($_POST['send'])) {
     $validated = false;
   }
   if ($validated ) {
+    //Jeśli validacja się powiodła, hashujemy hasło i zapisujemy nowego użytkownika w bazie danych.
     $stmt = $db->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
     $usr = $_POST['username'];
     $pass = password_hash($_POST['pass1'], PASSWORD_DEFAULT);
     $stmt->bind_param('ss', $usr, $pass );
     $result = $stmt->execute();
+    //Wyświetlanie odpowiedniego komunikatu w zależności od powodzenia opeacji.
     if($result) {
       echo "<div class='alert alert-success' role='alert'>Pomyślnie założono konto</div>";
     }

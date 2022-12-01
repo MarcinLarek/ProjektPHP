@@ -13,21 +13,23 @@ if (isset($_POST['send'])) {
   $result = $stmt->execute();
 }
 
+//Pobieramy informacje o produkcie który chemy edytować wyszukująć go po id przy pomocy zmiej przesłanej GETem
 $sql = "SELECT * FROM orders WHERE id=?";
 $stmt = $db->prepare($sql);
 $stmt->bind_param("i", $_GET['id']);
 $stmt->execute();
 $result = $stmt->get_result();
 $order = $result->fetch_assoc();
-
+//pobieranie listy użytkowników dla selecta użytkowników w formularzu
 $sql = "SELECT * FROM users";
 $users = $db->query($sql);
+//pobieranie listy produktów dla selecta produktów w formularzu
 $sql = "SELECT * FROM products";
 $products = $db->query($sql);
 
 
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['username']) && $_SESSION['admin'] == 1) {
 ?>
 
 <div class="container pt-5">
@@ -40,6 +42,7 @@ if (isset($_SESSION['username'])) {
         <label class="control-label" for="user_id">Użytkownik</label>
         <select class="form-control" name="user_id">
           <?php
+          //Wyświetlanie wszystkich użytkowników. Przypsywanie Id do value i nazwy do widoku wyboru
             foreach ($users as $user) {
               $usid = $user['ID'];
               echo "<option value='$usid'>".$user['username']."</option>";
@@ -50,6 +53,7 @@ if (isset($_SESSION['username'])) {
         <label class="control-label pt-3" for="product_id">Produkt</label>
         <select class="form-control" name="product_id">
           <?php
+          //Wyświetlanie wszystkich produktów. Przypsywanie Id do value i nazwy do widoku wyboru
             foreach ($products as $product) {
               $prodid = $product['Id'];
               echo "<option value='$prodid'>".$product['name']."</option>";

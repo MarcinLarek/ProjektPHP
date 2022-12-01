@@ -21,6 +21,8 @@ $db = new mysqli("localhost","root","","project");
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <?php
+      //Weryfikacja zmiennych w session. W zależności od ich zawartośći wyświetlane jest różne menu w nawigacji.
+      //Istnieje inne menu dla użytkownika i osoby niezalogowanej. Istnieje rónież dodatkowe menu dla administratora
       if (isset($_SESSION["username"])) {
        ?>
      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex w-100 justify-content-end">
@@ -30,6 +32,7 @@ $db = new mysqli("localhost","root","","project");
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <?php
+            //Nazwa użytkownika wyświetlana jest w innym kolorze w zależności od tego czy jest on adminem
                 if (isset($_SESSION["admin"]) && $_SESSION["admin"] == 1) {
                     echo "<span style='color:#f0c33c;'>".$_SESSION["username"]."</span>";
                 } else {
@@ -76,6 +79,7 @@ $db = new mysqli("localhost","root","","project");
 
 
 <?php
+//Wyświetlanie dodatkowego menu nawigacji dla administratora
 if (isset($_SESSION["admin"]) && $_SESSION["admin"] == true) {
  ?>
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

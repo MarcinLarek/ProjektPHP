@@ -1,13 +1,15 @@
 <?php
 require_once 'db_utils.php';
-
+//Przeszukujemy bazę danych po kolumnie username, w celu znalezienia użytkownika, który został podany w formularzu
 if (isset($_POST['send'])) {
   $stmt = $db->prepare("SELECT * FROM users WHERE username = ?");
   $stmt->bind_param('s',$_POST['username']);
   $stmt->execute();
   $result = $stmt->get_result();
+  //Gdy znajdziemy użytkownika sprawdzamy poprawność wprowadzanego hasła komendą password_verify
   while ($data = $result->fetch_array()) {
     if (password_verify($_POST['pass'], $data['password'])) {
+      //Jeśli wprowadzono poprawne hasło ustawiamy zmienną session, pobierając dane o użytkowniku i odświeżamy strone.
       $_SESSION["username"] = $data['username'];
       $_SESSION["password"] = $data['password'];
       $_SESSION["admin"] = $data['admin'];
@@ -18,11 +20,15 @@ if (isset($_POST['send'])) {
     }
   }
 }
+//Jeśli jest ustalona zmienna session (po udanym logowaniu, lub wejściu jako zalogowany użytkownik), wyświetlamy
+//odpowiedni komunikat i 'ładujemy' stronę index.php
 if(isset($_SESSION["username"])){
 echo "<div style='margin-bottom:0px !important;' class='alert alert-success' role='alert'>Pomyślnie zalogowano użytkownika</div>";
 
 require_once 'index.php';
-} else {
+}
+//Jeśli użytkownik nie jest zalogowawany  wyświetlamy formularz logowania.
+else {
  ?>
 
  <div class="container pt-5">
