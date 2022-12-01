@@ -17,26 +17,49 @@ if (isset($_GET['success'])) {
 $userid = $_SESSION['ID'];
 $result = mysqli_query($db,"SELECT * FROM orders WHERE user_id = $userid"); ?>
         <div class="cart-wrapper">
-            <ul>
-                <li>Fotka</li>
-                <li>Nazwa</li>
-                <li>Cena</li>
-                <li>Data zakupu</li>
-                <li>Status zamówienia</li>
-            </ul>
+
+                <div class="row">
+            <div class="col testus">
+            Fotka
+            </div>
+            <div class="col testus">
+            Nazwa
+            </div>
+            <div class="col testus">
+            Cena
+            </div>
+            <div class="col testus">
+            Data zakupu
+            </div>
+            <div class="col testus">
+            Status zamówienia
+            </div>
+        </div>
+            <hr>
+
 <?php foreach ($result as $order) {
     $prodid = $order['product_id'];
     $product = mysqli_query($db,"SELECT * FROM products WHERE id = $prodid");
     $singleproduct = $product->fetch_row(); ?>
 
-            <ul>
-                <li><img src="<?php echo $singleproduct[4] ?>" alt=""></li>
-                <li><?php echo $singleproduct[1] ?></li>
-                <li><?php echo $singleproduct[3] ?>zł</li>
-                <li><?php echo $order["order_date"] ?></li>
-                <li><?php echo $order["status"] ?></li>
-            </ul>
-        <!-- <hr> -->
+    <div class="row">
+<div class="col testus">
+<img src="<?php echo $singleproduct[4] ?>" alt="">
+</div>
+<div class="col testus">
+<?php echo $singleproduct[1] ?>
+</div>
+<div class="col testus">
+<?php echo $singleproduct[3] ?>zł
+</div>
+<div class="col testus">
+<?php echo $order["order_date"] ?>
+</div>
+<div class="col testus">
+<?php echo $order["status"] ?>
+</div>
+    </div>
+        <hr>
 
   <?php
 }

@@ -87,11 +87,12 @@
 }
 .cart-wrapper {
     margin-top: 20px;
-    padding: 0 400px;
+    padding: 0 20%;
     margin-bottom: 100px;
 }
-.cart-wrapper ul {
+.cart-wrapper tr {
     list-style: none;
+    width: 100%;
     display: flex;
     align-items: center;
     border-bottom: 2px solid black;
@@ -100,6 +101,11 @@
     justify-content: space-between;
 }
 
-.cart-wrapper ul li img {
+.cart-wrapper img {
     width: 100px;
+}
+.testus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
